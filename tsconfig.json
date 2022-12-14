@@ -2,14 +2,21 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "strictPropertyInitialization": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictBindCallApply": true,
+    "strictNullChecks": true,
+    "useUnknownInCatchVariables": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -21,7 +28,11 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@environments/*": ["src/environments/*"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
