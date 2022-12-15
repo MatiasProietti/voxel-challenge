@@ -31,4 +31,6 @@ export class ShowService {
   public getShowById(id: number): Observable<Show> {
     return this.http.get<ShowBackend>(`http://api.tvmaze.com/shows/${id}`).pipe(map((show: ShowBackend) => ShowAdapter.fromBackend(show)));
   }
+
+  // Client side caching could be implemented
 }

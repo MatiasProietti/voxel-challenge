@@ -8,7 +8,7 @@ export type ShowRating = {
 };
 
 /*
-  Depending on coding styles the types above could've been moved to a different
+  Depending on coding styles the types above could belong on a different
     file inside a "types" folder
 */
 
