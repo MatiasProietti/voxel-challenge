@@ -1,1 +1,25 @@
-<p>show-detail works!</p>
+<button mat-icon-button (click)="navigateBack()" data-testid="button">
+  <mat-icon color="primary">arrow_back</mat-icon>
+</button>
+
+<mat-card *ngIf="show">
+  <div class="image">
+    <img data-testid="image" [src]="show.image.medium" />
+  </div>
+  <div>
+    <mat-card-title data-testid="name">{{show.name}}</mat-card-title>
+    <ngb-rating [rate]="show.rating.average" [starTemplate]="ratingTemplate" [readonly]="true" [max]="10"></ngb-rating>
+    {{show.rating.average}}
+    <div data-testid="genres" class="genres">{{show.genres}}</div>
+    <!-- We can use a pipe here to display the genres in a proper way-->
+    <mat-card-content data-testid="summary" [innerHTML]="show.summary"></mat-card-content>
+  </div>
+</mat-card>
+
+<!-- implementation from https://ng-bootstrap.github.io/#/components/rating/examples . It may not follow best practices-->
+<ng-template #ratingTemplate let-fill="fill">
+  <mat-icon
+    >star
+    <mat-icon class="filled" *ngIf="fill > 0" [style.width.%]="fill">star</mat-icon>
+  </mat-icon>
+</ng-template>

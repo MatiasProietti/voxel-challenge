@@ -1,0 +1,23 @@
+mat-card {
+  display: flex;
+  width: 700px;
+  .image {
+    margin-right: 20px;
+  }
+  .genres {
+    margin-bottom: 20px;
+  }
+}
+
+mat-icon {
+  position: relative;
+  display: inline-block;
+  color: #d3d3d3;
+  .filled {
+    color: gold;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

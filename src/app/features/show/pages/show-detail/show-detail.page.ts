@@ -1,10 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Show } from '../../models/show.models';
+import { ShowService } from '../../services/show.service';
 
 @Component({
   selector: 'app-show-detail',
   templateUrl: './show-detail.page.html',
   styleUrls: ['./show-detail.page.scss'],
 })
-export class ShowDetailPage {
-  constructor() {}
+export class ShowDetailPage implements OnInit {
+  public show?: Show;
+  private id!: number;
+
+  constructor(private showSrv: ShowService, private route: ActivatedRoute, private router: Router) {}
+
+  public ngOnInit(): void {
+    this.getId();
+    this.getShowData();
+  }
+
+  public navigateBack(): void {
+    this.router.navigateByUrl('..');
+  }
+
+  private getId(): void {
+    this.id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    // @todo: We can add validations for the id here
+  }
+
+  private getShowData(): void {
+    this.showSrv.getShowById(this.id).subscribe((show: Show) => (this.show = show));
+  }
 }
