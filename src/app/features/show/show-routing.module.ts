@@ -22,6 +22,7 @@ const routes: Routes = [
     ],
   },
 ];
+// Routes names could be moved to a constants file.
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
