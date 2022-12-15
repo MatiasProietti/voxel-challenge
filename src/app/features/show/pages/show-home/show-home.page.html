@@ -1,1 +1,11 @@
-<p>show-home works!</p>
+<div class="container" *ngIf="shows">
+  <div class="show" *ngFor="let show of shows | paginate: { itemsPerPage: SHOWS_PER_PAGE, currentPage: currentPage }; trackBy:trackById">
+    <app-show-card
+      [title]="show.name"
+      [rating]="show.rating.average"
+      [image]="show.image.medium"
+      (click)="goToDetail(show)"
+      data-testid="card"></app-show-card>
+  </div>
+</div>
+<pagination-controls *ngIf="shows" (pageChange)="changePage($event)" class="pagination"></pagination-controls>
