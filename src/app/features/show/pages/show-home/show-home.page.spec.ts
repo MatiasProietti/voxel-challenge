@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { byTestId, createRoutingFactory, createSpyObject, SpectatorRouting, SpyObject } from '@ngneat/spectator';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { of } from 'rxjs';
+import { ShowCardModule } from '../../components/show-card/show-card.module';
 import { Show } from '../../models/show.models';
 import { ShowService } from '../../services/show.service';
 import { ShowHomePage } from './show-home.page';
@@ -24,7 +25,7 @@ describe('ShowHomePage', () => {
 
   const createComponent = createRoutingFactory({
     component: ShowHomePage,
-    imports: [NgxPaginationModule],
+    imports: [NgxPaginationModule, ShowCardModule],
   });
 
   beforeEach(() => {

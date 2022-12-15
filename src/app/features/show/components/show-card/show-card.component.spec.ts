@@ -1,10 +1,14 @@
+import { MatCardModule } from '@angular/material/card';
 import { byTestId, createComponentFactory, Spectator } from '@ngneat/spectator';
 
 import { ShowCardComponent } from './show-card.component';
 
 describe('ShowCardComponent', () => {
   let spectator: Spectator<ShowCardComponent>;
-  const createComponent = createComponentFactory(ShowCardComponent);
+  const createComponent = createComponentFactory({
+    component: ShowCardComponent,
+    imports: [MatCardModule],
+  });
 
   beforeEach(() => (spectator = createComponent()));
 

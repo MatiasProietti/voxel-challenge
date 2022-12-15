@@ -1,6 +1,10 @@
 import { ShowDetailPage } from './show-detail.page';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { byTestId, createRoutingFactory, createSpyObject, SpectatorRouting, SpyObject } from '@ngneat/spectator';
 import { of } from 'rxjs';
 import { Show } from '../../models/show.models';
@@ -23,6 +27,7 @@ describe('ShowDetailPage', () => {
   const createComponent = createRoutingFactory({
     component: ShowDetailPage,
     params: { id: fakeShow.id },
+    imports: [MatCardModule, MatButtonModule, MatIconModule, NgbRatingModule],
   });
 
   beforeEach(() => {
